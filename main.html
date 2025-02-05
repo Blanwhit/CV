@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Calibri', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        .header-container {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+                    rgba(255, 255, 255, 0.1) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    rgba(255, 255, 255, 0.1) 75%,
+                    transparent 75%,
+                    transparent);
+            background-size: 30px 30px;
+            opacity: 0.1;
+        }
+
+        .name {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+        }
+
+        .entry {
+            margin-bottom: 15px;
+        }
+
+        .entry-title {
+            font-weight: bold;
+        }
+
+        .entry-details {
+            margin-left: 20px;
+        }
+
+        ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .social-links {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .social-links i {
+            font-size: 24px;
+        }
+
+        .social-links .social-text {
+            display: block;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="name">Vadym Shvydun</div>
+        <div class="contact">
+            <a href="mailto:vadim.shvydun@gmail.com">vadim.shvydun@gmail.com</a> | Kingston, Ontario<br>
+            Grade 10 Student, Regiopolis-Notre Dame C.H.S.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">ACADEMIC ACHIEVEMENTS</div>
+        <div class="entry">
+            <div class="entry-title">Olympiad Excellence</div>
+            <div class="entry-details">
+                <ul>
+                    <li>Two-time Student Champion (2023, 2024), Canadian Intermediate Mathematics Contest (CIMC)
+                        <br>- Top-5 score among 20,000+ grade 9-10 students in Canada
+                    </li>
+                    <li>Perfect scores in University of Waterloo Mathematics Competitions (2024 Pascal Mathematical
+                        Contest, 2024 Fryer Mathematical Contest)
+                        <br>- One of only 3 students out of 5,000+ nationwide to achieve perfect scores
+                    </li>
+                    <li>
+                        Two-time qualifier (2024, 2025), American Invitational Mathematical Exam (AIME)
+                        <br>- One of only 6000 grade 9-12 students worldwide to qualify
+                    </li>
+                    <li>
+                        Two-time KML Gold Medalist (Senior 2024, Junior 2023)
+                    </li>
+                    <li>
+                        QSLMA Grade 9 Gold Medalist (2024)
+                    </li>
+                    <li>
+                        1st Place - Kyiv Region Annual Coding Olympiad (2022)
+                    </li>
+                    <li>
+                        Gold Medalist, Kyiv Region Annual Mathematics Olympiad (2022)
+                    </li>
+                </ul>
+            </div>
+            <div class="entry-title">
+                Other Academic Achievements
+            </div>
+            <div class="entry-details">
+                <ul>
+                    <li>
+                        Shirley A. Brassor Grade 9 Memorial Scholarship Recipient (2024)
+                    </li>
+                    <li>
+                        Silver Medalist, Kingston Annual Chess Tournament - Grade 9 Division (2024)
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">TECHNICAL EXPERTISE</div>
+        <div class="entry">
+            <div class="entry-title">Programming Languages & Technologies</div>
+            <div class="entry-details">
+                <ul>
+                    <li>Frontend: HTML, CSS, JavaScript</li>
+                    <li>Backend: NodeJS, Python, C++</li>
+                    <li>Databases: SQL, MongoDB, SQLite, Pymongo</li>
+                    <li>Python Libraries: discord.py, coc.py</li>
+                </ul>
+            </div>
+        </div>
+        <div class="entry">
+            <div class="entry-title">Education & Training</div>
+            <div class="entry-details">
+                <ul>
+                    <li>DAN.IT Web Fullstack Course Graduate</li>
+                    <li>Self-taught in multiple programming languages and frameworks</li>
+                </ul>
+            </div>
+        </div>
+        <div class="entry">
+            <div class="entry-title">Personal Projects (More on my <a href="https://github.com/Blanwhit">GitHub</a>)
+            </div>
+            <div class="entry-details">
+                <ul>
+                    <li><a href="https://bit.ly/ntf-chess">NTF Chess</a> - An original chess variant with
+                        an altruism-based gameplay mechanic</li>
+                    <li><a href="https://github.com/Blanwhit/Waffle-Solver">Waffle Game Solver</a> - Fast automated
+                        terminal-based solution finder for <a href="https://wafflgame.net">The Waffle Game</a></li>
+                    <li><a href="https://blanwhit.github.io/Tic-Tac-Toe/">Browser-based Tic-Tac-Toe</a> - An interactive
+                        algorithm</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">RESEARCH EXPERIENCE</div>
+        <div class="entry">
+            <div class="entry-title">Summer '24 <a href="https://www.non-trivial.org/">Non-Trivial Fellow</a></div>
+            <div class="entry-details">
+                <ul>
+                    <li>Selected for prestigious fellowship program (1% acceptance rate)</li>
+                    <li>Co-authored <a href="">research paper</a> on the future of Nanotechnology and Atomically Precise
+                        Manufacturing
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">SKILLS & ACCOMPLISHMENTS</div>
+        <div class="entry">
+            <div class="entry-title">Languages</div>
+            <div class="entry-details">
+                <ul>
+                    <li>English: Fluent</li>
+                    <li>Ukrainian: Native/Bilingual</li>
+                    <li>Russian: Native/Bilingual</li>
+                    <li>German: Advanced (C1)</li>
+                </ul>
+            </div>
+            <div class="entry-title">Athletics</div>
+            <div class="entry-details">
+                <ul>
+                    <li>Martial Arts Practitioner - Kung Fu, Karate, Jiu Jitsu; previous experience in MMA</li>
+                    <li>Ukrainian Folk Dancer for <a href="https://www.facebook.com/MakyKingston">MAKY</a></li>
+                    <li>Calisthenicist - Mastery of advanced static holds including the Human Flag and Front Lever</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.reddit.com/user/Blanwhit/" target="_blank">
+                <i class="fab fa-reddit"></i>
+                <span class="social-text">Reddit</span>
+            </a>
+            <a href="mailto:vadim.shvydun@gmail.com">
+                <i class="far fa-envelope"></i>
+                <span class="social-text">Email</span>
+            </a>
+            <a href="https://discord.com/users/690542224491937822" target="_blank">
+                <i class="fab fa-discord"></i>
+                <span class="social-text">Discord</span>
+            </a>
+            <a href="https://github.com/Blanwhit" target="_blank">
+                <i class="fab fa-github"></i>
+                <span class="social-text">GitHub</span>
+            </a>
+            <a href="https://www.artstation.com/blanwhit" target="_blank">
+                <i class="fab fa-artstation"></i>
+                <span class="social-text">ArtStation</span>
+            </a>
+        </div>
+</body>
+
+</html>
