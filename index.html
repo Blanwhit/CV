@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="dark">
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            transition: all 0.7s ease;
+            --primary-color: #f1c40f;
+            --primary-dark: #2c2816;
+        }
+
         body {
             font-family: 'Calibri', Arial, sans-serif;
             line-height: 1.6;
@@ -14,7 +20,6 @@
         }
 
         .header-container {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             padding: 40px 20px;
             border-radius: 10px;
             margin-bottom: 30px;
@@ -64,6 +69,8 @@
             padding: 5px 10px;
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            display: inline-block;
             transition: all 0.3s ease;
         }
 
@@ -118,7 +125,6 @@
             margin: 0 15px;
             color: #2c3e50;
             text-decoration: none;
-            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
@@ -136,10 +142,234 @@
             margin-top: 5px;
         }
 
+        /* Dark mode styles */
+        [data-theme="dark"] {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .header-container {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+        }
+
+        [data-theme="dark"] .entry-title {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .entry-details {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] ul li {
+            color: #e0e0e0;
+        }
+
+        /* Controls Container */
+        .theme-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle,
+        .color-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--primary-dark);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .theme-toggle:hover,
+        .color-toggle:hover {
+            transform: scale(1.1);
+        }
+
+
+        .color-popup {
+            position: absolute;
+            top: calc(100% + 5px);
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+        }
+
+        [data-theme="dark"] .color-popup {
+            background: #2a2a2a;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            cursor: pointer;
+        }
+
+        [data-theme="dark"] .color-option {
+            border-color: #2a2a2a;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        /* Update all color references to use CSS variables */
+        .header-container {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .contact a:hover {
+            background: var(--primary-color);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .section-title {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        [data-theme="dark"] a {
+            color: var(--primary-color);
+        }
+
+        [data-theme="light"] a {
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .social-links a {
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .theme-toggle,
+        [data-theme="dark"] .color-toggle {
+            color: var(--primary-color);
+        }
+
     </style>
 </head>
 
 <body>
+    <div class="theme-controls">
+        <button class="color-toggle" onclick="toggleColorPicker()" aria-label="Change theme color">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="color-popup" id="colorPopup">
+            <div class="color-option" style="background: #3498db" onclick="changeColor('#3498db', '#2c3e50')"></div>
+            <div class="color-option" style="background: #e74c3c" onclick="changeColor('#e74c3c', '#2c2320')"></div>
+            <div class="color-option" style="background: #2ecc71" onclick="changeColor('#2ecc71', '#1c3326')"></div>
+            <div class="color-option" style="background: #9b59b6" onclick="changeColor('#9b59b6', '#2a2037')"></div>
+            <div class="color-option" style="background: #f1c40f" onclick="changeColor('#f1c40f', '#2c2816')"></div>
+            <div class="color-option" style="background: #1abc9c" onclick="changeColor('#1abc9c', '#1a2e2b')"></div>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Rest of your CV content remains unchanged -->
+
+    <script>
+        function toggleTheme ()
+        {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute( 'data-theme' );
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            html.setAttribute( 'data-theme', newTheme );
+
+            // Toggle icon
+            const icon = document.querySelector( '.theme-toggle i' );
+            if ( newTheme === 'dark' )
+            {
+                icon.classList.remove( 'fa-moon' );
+                icon.classList.add( 'fa-sun' );
+            } else
+            {
+                icon.classList.remove( 'fa-sun' );
+                icon.classList.add( 'fa-moon' );
+            }
+
+            // Store preference
+            localStorage.setItem( 'theme', newTheme );
+        }
+
+        // Load saved theme preference
+        document.addEventListener( 'DOMContentLoaded', () =>
+        {
+            const savedTheme = localStorage.getItem( 'theme' ) || 'dark';
+            document.documentElement.setAttribute( 'data-theme', savedTheme );
+
+            // Set correct icon
+            const icon = document.querySelector( '.theme-toggle i' );
+            if ( savedTheme === 'dark' )
+            {
+                icon.classList.remove( 'fa-moon' );
+                icon.classList.add( 'fa-sun' );
+            }
+        } );
+
+        function toggleColorPicker ()
+        {
+            const popup = document.getElementById( 'colorPopup' );
+            popup.style.display = popup.style.display === 'grid' ? 'none' : 'grid';
+        }
+
+        function changeColor ( primary, dark )
+        {
+            document.documentElement.style.setProperty( '--primary-color', primary );
+            document.documentElement.style.setProperty( '--primary-dark', dark );
+
+            // Store color preference
+            localStorage.setItem( 'primary-color', primary );
+            localStorage.setItem( 'primary-dark', dark );
+
+            // Hide color picker after selection
+            document.getElementById( 'colorPopup' ).style.display = 'none';
+        }
+
+        // Load saved color preference
+        document.addEventListener( 'DOMContentLoaded', () =>
+        {
+            const savedPrimary = localStorage.getItem( 'primary-color' );
+            const savedDark = localStorage.getItem( 'primary-dark' );
+            if ( savedPrimary && savedDark )
+            {
+                changeColor( savedPrimary, savedDark );
+            }
+
+            // Close color picker when clicking outside
+            document.addEventListener( 'click', ( e ) =>
+            {
+                const popup = document.getElementById( 'colorPopup' );
+                const colorToggle = document.querySelector( '.color-toggle' );
+                if ( !popup.contains( e.target ) && !colorToggle.contains( e.target ) )
+                {
+                    popup.style.display = 'none';
+                }
+            } );
+        } );
+    </script>
+
     <div class="header-container">
         <div class="name">Vadym Shvydun</div>
         <div class="contact">
@@ -272,9 +502,17 @@
                     <li>Martial Arts Practitioner - Kung Fu, Karate, Jiu Jitsu; previous experience in MMA</li>
                     <li>Ukrainian Folk Dancer for <a href="https://www.facebook.com/MakyKingston">MAKY</a></li>
                     <li>Calisthenicist - Mastery of advanced static holds including the Human Flag and Front Lever</li>
+                </ul>
+            </div>
+            <div class="entry-title">Arts</div>
+            <div class="entry-details">
+                <ul>
                     <li>Guitarist - advanced repertoire on classical, acoustic and electric guitars, including Bach's
                         "Toccata and Fugue in D Minor", Marcin's "Classical Dragon" and Avenged Sevenfold's "Buried
                         Alive"</li>
+                    <li>3D Artist using Blender, Photoshop and World Creator - see <a
+                            href="https://www.artstation.com/blanwhit">my Artstation profile</a> for my works
+                    </li>
                 </ul>
             </div>
         </div>
@@ -301,6 +539,7 @@
                 <span class="social-text">ArtStation</span>
             </a>
         </div>
+    </div>
 </body>
 
 </html>
