@@ -48,6 +48,8 @@ function changeColor ( primary, dark )
     document.documentElement.style.setProperty( '--primary-color', primary );
     document.documentElement.style.setProperty( '--primary-dark', dark );
 
+    document.getElementById( 'favicon' ).href = `https://api.iconify.design/f7/book-fill.svg?color=%23${ primary.substring( 1 ) } `;
+
     // Store color preference
     localStorage.setItem( 'primary-color', primary );
     localStorage.setItem( 'primary-dark', dark );
