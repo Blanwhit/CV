@@ -29,6 +29,7 @@ body
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    z-index: 0;
 }
 
 .header-container::before
@@ -49,7 +50,10 @@ body
             transparent);
     background-size: 30px 30px;
     opacity: 0.1;
+    pointer-events: none;
+    z-index: 1;
 }
+
 
 .name
 {
@@ -83,7 +87,7 @@ body
 
 .contact a:hover
 {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
     transform: translateY(-2px);
 }
 
@@ -274,11 +278,6 @@ li
 .section-title
 {
     border-bottom: 2px solid var(--primary-color);
-}
-
-.contact a:hover
-{
-    background: var(--primary-color);
 }
 
 .social-links a:hover
