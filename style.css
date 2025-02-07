@@ -82,6 +82,7 @@ body
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     display: inline-block;
+    transition: all 0.3ms ease;
 }
 
 .contact a:hover
@@ -220,6 +221,7 @@ li
     color: var(--primary-dark);
     padding: 10px;
     border-radius: 50%;
+    transition: all 0.3ms ease;
 }
 
 .theme-toggle:hover,
