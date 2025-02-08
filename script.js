@@ -40,7 +40,17 @@ document.addEventListener( 'DOMContentLoaded', () =>
 function toggleColorPicker ()
 {
     const popup = document.getElementById( 'colorPopup' );
-    popup.style.display = popup.style.display === 'grid' ? 'none' : 'grid';
+    popup.style.display = 'grid';
+    if ( popup.classList.contains( 'show' ) )
+    {
+        popup.classList.remove( 'show' );
+    } else
+    {
+        setTimeout( () =>
+        {
+            popup.classList.add( 'show' );
+        }, 1 );
+    }
 }
 
 function changeColor ( primary, dark )
