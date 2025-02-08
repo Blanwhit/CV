@@ -35,7 +35,6 @@ document.addEventListener( 'DOMContentLoaded', () =>
         icon.classList.remove( 'fa-moon' );
         icon.classList.add( 'fa-sun' );
     }
-    setTimeout( toggleColorPicker, 50 );
 } );
 
 function toggleColorPicker ( onlyhide = false )
@@ -66,7 +65,7 @@ function changeColor ( primary, dark )
     localStorage.setItem( 'primary-dark', dark );
 
     // Hide color picker after selection
-    toggleColorPicker();
+    toggleColorPicker( onlyhide = true );
 }
 
 // Load saved color preference
@@ -86,7 +85,7 @@ document.addEventListener( 'DOMContentLoaded', () =>
         const colorToggle = document.querySelector( '.color-toggle' );
         if ( !popup.contains( e.target ) && !colorToggle.contains( e.target ) )
         {
-            toggleColorPicker( onlyhide );
+            toggleColorPicker( onlyhide = true );
         }
     } );
 } );
