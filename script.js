@@ -49,7 +49,7 @@ function toggleColorPicker ()
         setTimeout( () =>
         {
             popup.classList.add( 'show' );
-        }, 10 );
+        }, 1 );
     }
 }
 
@@ -65,7 +65,7 @@ function changeColor ( primary, dark )
     localStorage.setItem( 'primary-dark', dark );
 
     // Hide color picker after selection
-    document.getElementById( 'colorPopup' ).style.display = 'none';
+    toggleColorPicker();
 }
 
 // Load saved color preference

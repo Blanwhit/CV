@@ -298,7 +298,7 @@ li
 {
     .color-popup
     {
-        right: 12px;
+        right: calc(0.5em + 10px);
     }
 }
 
