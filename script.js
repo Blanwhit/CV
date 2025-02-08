@@ -35,7 +35,7 @@ document.addEventListener( 'DOMContentLoaded', () =>
         icon.classList.remove( 'fa-moon' );
         icon.classList.add( 'fa-sun' );
     }
-    setTimeout( toggleColorPicker, 10 );
+    setTimeout( toggleColorPicker, 50 );
 } );
 
 function toggleColorPicker ( onlyhide = false )
