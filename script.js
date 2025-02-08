@@ -35,16 +35,17 @@ document.addEventListener( 'DOMContentLoaded', () =>
         icon.classList.remove( 'fa-moon' );
         icon.classList.add( 'fa-sun' );
     }
+    setTimeout( toggleColorPicker, 10 );
 } );
 
-function toggleColorPicker ()
+function toggleColorPicker ( onlyhide = false )
 {
     const popup = document.getElementById( 'colorPopup' );
     popup.style.display = 'grid';
     if ( popup.classList.contains( 'show' ) )
     {
         popup.classList.remove( 'show' );
-    } else
+    } else if ( !onlyhide )
     {
         setTimeout( () =>
         {
@@ -85,7 +86,7 @@ document.addEventListener( 'DOMContentLoaded', () =>
         const colorToggle = document.querySelector( '.color-toggle' );
         if ( !popup.contains( e.target ) && !colorToggle.contains( e.target ) )
         {
-            popup.style.display = 'none';
+            toggleColorPicker( onlyhide );
         }
     } );
 } );
