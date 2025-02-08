@@ -329,7 +329,7 @@ li
     {
         left: 2em;
         top: 4em;
-        scale: 2;
+        transform: scale(2);
     }
 }
 
