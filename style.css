@@ -329,7 +329,19 @@ li
     {
         left: 2em;
         top: 4em;
-        transform: scale(2);
+        scale: 2;
+    }
+
+
+    .social-links
+    {
+        scale: 1.5;
+        transform: translateY(30%);
+    }
+
+    .header-container
+    {
+        margin-top: 4em;
     }
 }
 
