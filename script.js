@@ -49,7 +49,7 @@ function toggleColorPicker ()
         setTimeout( () =>
         {
             popup.classList.add( 'show' );
-        }, 1 );
+        }, 10 );
     }
 }
 

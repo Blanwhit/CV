@@ -4,6 +4,16 @@
     --primary-dark: #2c2816;
 }
 
+.theme-toggle i
+{
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle i.fa-sun
+{
+    transform: rotate(180deg);
+}
+
 *,
 *::before,
 *::after
