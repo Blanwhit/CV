@@ -343,6 +343,11 @@ li
 
 @media (max-width: 1000px)
 {
+    .name
+    {
+        font-size: 64px;
+    }
+
     .social-links
     {
         padding: 40px 0;
