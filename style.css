@@ -31,6 +31,32 @@ body
     color: #333;
 }
 
+@media (max-width: 1000px)
+{
+    .contact .separator
+    {
+        display: none;
+    }
+
+    .contact br.responsive
+    {
+        display: block;
+    }
+}
+
+@media (min-width: 1000px)
+{
+    .contact .separator
+    {
+        display: inline;
+    }
+
+    .contact br.responsive
+    {
+        display: none;
+    }
+}
+
 .header-container
 {
     padding: 40px 20px;
@@ -315,14 +341,14 @@ li
 
     .color-toggle
     {
-        position: absolute;
         left: 10px;
+        justify-content: start;
     }
 
     .theme-toggle
     {
-        position: absolute;
         right: 10px;
+        justify-content: end;
     }
 
     .color-popup
@@ -330,6 +356,20 @@ li
         left: 2em;
         top: 5em;
         transform: scale(2);
+        z-index: 999999;
+    }
+
+    .theme-toggle,
+    .color-toggle
+    {
+        position: absolute;
+        font-size: 1.5em;
+        padding: 20px;
+        width: 5em;
+        height: 5em;
+        display: flex;
+        align-items: start;
+        z-index: 999;
     }
 }
 
