@@ -31,6 +31,14 @@ body
     color: #333;
 }
 
+.contact
+{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    margin-top: 10px;
+}
+
 @media (max-width: 1000px)
 {
     .contact .separator
@@ -41,6 +49,16 @@ body
     .contact br.responsive
     {
         display: block;
+    }
+
+    .contact
+    {
+        font-size: 1.3em;
+    }
+
+    .contact a
+    {
+        font-size: 1.5em;
     }
 }
 
@@ -99,14 +117,6 @@ body
     margin-bottom: 10px;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.contact
-{
-    text-align: center;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 16px;
-    margin-top: 10px;
 }
 
 [data-theme="dark"] a
