@@ -1,0 +1,419 @@
+/* Printable version of the CV.
+ *
+ * On screen #cv-print is hidden and the interactive page is untouched.
+ * When the page is printed (Ctrl/Cmd+P, "Save as PDF", print preview) the
+ * interactive page is dropped entirely and #cv-print takes over as a clean,
+ * paged black-on-white document.
+ *
+ * Everything visible is drawn with text and BORDERS, never background fills,
+ * because browsers print with "Background graphics" off by default — borders
+ * survive that, backgrounds do not.
+ *
+ * The printable markup lives at the bottom of index.html (#cv-print) and is a
+ * separate copy of the content: edit it when the page content changes.
+ */
+
+#cv-print { display: none; }
+
+@media print {
+
+  /* A4 keeps the CV to three well-filled pages; on Letter the same content
+     spills onto a fourth. Change to `size: Letter;` if you print on Letter
+     stock and prefer that. */
+  @page {
+    size: A4;
+    margin: 13mm 14mm;
+  }
+
+  /* The whole interactive page goes: fixed rails, glows, marquee, charts. */
+  #cv-root { display: none !important; }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #cv-print {
+    --pk: #c8410f;          /* accent, darkened a little for paper */
+    --ink: #14130f;
+    --dim: #55524b;
+    --rule: #b9b5ac;
+    --hair: #d6d3cc;
+
+    display: block;
+    margin: 0;
+    font-family: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 8.8pt;
+    line-height: 1.36;
+    color: var(--ink);
+    orphans: 3;
+    widows: 3;
+  }
+
+  #cv-print a {
+    color: inherit;
+    background: none;
+    text-decoration: none;
+  }
+
+  #cv-print ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* ---------------------------------------------------------------- header */
+
+  .p-head {
+    border-bottom: 1.4pt solid var(--ink);
+    padding-bottom: 6pt;
+    margin-bottom: 8pt;
+  }
+
+  .p-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 7pt;
+    margin-bottom: 5pt;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 6.6pt;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--pk);
+  }
+
+  .p-eyebrow::before {
+    content: "";
+    width: 22pt;
+    border-top: 1pt solid var(--pk);
+  }
+
+  .p-name {
+    margin: 0;
+    font-size: 28pt;
+    font-weight: 800;
+    font-stretch: 118%;
+    letter-spacing: -.035em;
+    line-height: .92;
+    text-transform: uppercase;
+  }
+
+  .p-role {
+    margin-top: 5pt;
+    font-size: 9.6pt;
+    font-weight: 500;
+  }
+
+  .p-contact {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 6pt;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7.4pt;
+    letter-spacing: .05em;
+    color: var(--dim);
+  }
+
+  /* The separator belongs to the preceding item, so a wrapped line never
+     starts with a dangling dot. */
+  .p-contact li:not(:last-child)::after {
+    content: "\00b7";
+    margin: 0 6pt;
+    color: var(--rule);
+  }
+
+  /* ------------------------------------------------------------ highlights */
+
+  .p-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.5pt;
+    margin-bottom: 10pt;
+  }
+
+  .p-highlights li {
+    border: .5pt solid var(--rule);
+    padding: 2.4pt 5pt;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7pt;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  /* --------------------------------------------------------------- section */
+
+  .p-sec { margin-bottom: 9pt; }
+
+  .p-sec-h {
+    display: flex;
+    align-items: center;
+    gap: 8pt;
+    margin: 0 0 6pt;
+    font-size: 12.4pt;
+    font-weight: 700;
+    font-stretch: 110%;
+    letter-spacing: -.02em;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .p-sec-h .p-num {
+    flex: none;
+    padding: 2pt 4pt;
+    border: .6pt solid var(--pk);
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7pt;
+    font-weight: 500;
+    letter-spacing: .18em;
+    color: var(--pk);
+  }
+
+  .p-sec-h .p-line {
+    flex: 1;
+    border-top: .6pt solid var(--rule);
+  }
+
+  .p-sec-h .p-note {
+    flex: none;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 6.8pt;
+    font-weight: 400;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .p-grp {
+    display: flex;
+    align-items: center;
+    gap: 6pt;
+    margin: 7.5pt 0 4pt;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7.2pt;
+    font-weight: 500;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--dim);
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .p-grp::before {
+    content: attr(data-letter);
+    padding: 1pt 3.4pt;
+    border: .5pt solid var(--pk);
+    letter-spacing: 0;
+    color: var(--pk);
+  }
+
+  .p-grp::after {
+    content: "";
+    flex: 1;
+    border-top: .5pt solid var(--hair);
+  }
+
+  /* ------------------------------------------------------------------ item */
+
+  .p-item {
+    display: grid;
+    grid-template-columns: 64pt minmax(0, 1fr);
+    gap: 0 10pt;
+    padding: 3.6pt 0 3.6pt 7pt;
+    border-left: .7pt solid var(--hair);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .p-item + .p-item,
+  .p-row + .p-row {
+    border-top: .4pt solid var(--hair);
+  }
+
+  .p-when {
+    padding-top: 1.2pt;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7pt;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--pk);
+  }
+
+  .p-when span {
+    display: block;
+    margin-top: 2pt;
+    letter-spacing: .14em;
+    color: var(--dim);
+  }
+
+  .p-title {
+    font-size: 9.5pt;
+    font-weight: 650;
+    letter-spacing: -.012em;
+    line-height: 1.28;
+  }
+
+  .p-title .p-score {
+    margin-left: 5pt;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 9pt;
+    letter-spacing: .02em;
+    color: var(--pk);
+  }
+
+  .p-where {
+    margin-top: 2.5pt;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7pt;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .p-desc {
+    margin-top: 3pt;
+    color: #33312c;
+  }
+
+  .p-bullets { margin-top: 3pt; }
+
+  .p-bullets li {
+    display: grid;
+    grid-template-columns: 10pt minmax(0, 1fr);
+    color: #33312c;
+  }
+
+  .p-bullets li::before {
+    content: "\2014";
+    color: var(--pk);
+  }
+
+  /* Compact rows for the long enumerations (C.03-C.11, D.xx, E.xx). */
+
+  .p-row {
+    display: grid;
+    grid-template-columns: 32pt minmax(0, 1fr);
+    gap: 0 8pt;
+    padding: 2.2pt 0 2.2pt 7pt;
+    border-left: .7pt solid var(--hair);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .p-row .p-tag {
+    padding-top: .8pt;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7pt;
+    letter-spacing: .08em;
+    color: var(--pk);
+  }
+
+  .p-row .p-sub {
+    display: block;
+    margin-top: 1pt;
+    color: var(--dim);
+  }
+
+  /* ------------------------------------------------------------ score bars */
+
+  .p-scale {
+    position: relative;
+    height: 5.5pt;
+    margin: 4pt 0 2.5pt;
+    border: .5pt solid var(--hair);
+  }
+
+  .p-scale i {
+    position: absolute;
+    top: 1.2pt;
+    left: 0;
+    border-top: 3pt solid var(--pk);
+  }
+
+  .p-scale b {
+    position: absolute;
+    top: -1.5pt;
+    bottom: -1.5pt;
+    border-left: .7pt solid var(--dim);
+  }
+
+  .p-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 6.4pt;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .p-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4pt 14pt;
+    margin-top: 4pt;
+  }
+
+  .p-stats li {
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 6.8pt;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .p-stats b {
+    margin-right: 4pt;
+    font-size: 8.4pt;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* --------------------------------------------------------------- columns */
+
+  .p-cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 16pt;
+  }
+
+  .p-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3pt;
+  }
+
+  .p-chips li {
+    padding: 1.6pt 4pt;
+    border: .5pt solid var(--hair);
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7pt;
+    letter-spacing: .06em;
+  }
+
+  /* ---------------------------------------------------------------- footer */
+
+  .p-foot {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10pt;
+    margin-top: 8pt;
+    padding-top: 5pt;
+    border-top: 1pt solid var(--ink);
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 6.8pt;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--dim);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .p-break {
+    break-before: page;
+    page-break-before: always;
+  }
+}
