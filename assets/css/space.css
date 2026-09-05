@@ -1,0 +1,56 @@
+/* Page styles — extracted from the original space.html bundle. */
+
+html { background: oklch(0.148 0.014 258); }
+  body { margin: 0; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  * { box-sizing: border-box; }
+  ::selection { background: oklch(0.79 0.13 82 / 0.28); color: oklch(0.98 0 0); }
+  a { color: oklch(0.86 0.075 82); text-decoration: none; }
+  a:hover { color: oklch(0.94 0.09 82); }
+  @keyframes drift { from { background-position: 0 0, 0 0; } to { background-position: 46px 92px, 31px -62px; } }
+  @keyframes twinkle { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+  ul { margin: 0; padding: 0; list-style: none; }
+  @media (prefers-reduced-motion: reduce) { * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* Hover states — these were style-hover="" attributes applied by the
+   runtime as inline styles, so they need !important to beat the element's
+   own style attribute. */
+.space-hv-1:hover {
+  color:var(--accent, oklch(0.79 0.13 82)) !important;
+}
+
+.space-hv-2:hover {
+  background:oklch(0.205 0.02 258) !important;
+}
+
+.space-hv-3:hover {
+  background:oklch(0.192 0.018 258) !important;
+}
+
+.space-hv-4:hover {
+  background:oklch(0.2 0.021 258) !important;
+  border-color:oklch(1 0 0 / 0.17) !important;
+}
+
+.space-hv-5:hover {
+  background:oklch(0.185 0.017 258) !important;
+}
+
+.space-hv-6:hover {
+  background:oklch(0.196 0.019 258) !important;
+  border-color:oklch(1 0 0 / 0.17) !important;
+}
+
+.space-hv-7:hover {
+  background:oklch(0.196 0.019 258) !important;
+}
+
+.space-hv-8:hover {
+  color:var(--accent, oklch(0.79 0.13 82)) !important;
+  border-bottom-color:var(--accent, oklch(0.79 0.13 82)) !important;
+}
+
+.space-hv-9:hover {
+  border-color:var(--accent, oklch(0.79 0.13 82)) !important;
+  color:oklch(0.98 0 0) !important;
+  background:oklch(1 0 0 / 0.04) !important;
+}

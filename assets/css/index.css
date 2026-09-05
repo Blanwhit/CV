@@ -1,0 +1,77 @@
+/* Page styles — extracted from the original index.html bundle. */
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#0a0a09}
+body{margin:0;background:#0a0a09;color:#f2f0ea;font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--accent,#ff5c22);text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-size:0% 1px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .45s cubic-bezier(.16,1,.3,1),color .3s ease}
+a:hover{color:#ffd7c4;background-size:100% 1px}
+::selection{background:var(--accent,#ff5c22);color:#0a0a09}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#0a0a09}
+::-webkit-scrollbar-thumb{background:#26251f;border:3px solid #0a0a09;border-radius:99px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent,#ff5c22)}
+@keyframes riseIn{from{opacity:0;transform:translateY(38px);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes riseSm{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes charUp{from{opacity:0;transform:translateY(108%) rotate(7deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes wipeX{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinBack{to{transform:rotate(-360deg)}}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.6)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@keyframes scanY{0%{transform:translateY(-6vh);opacity:0}8%{opacity:.5}88%{opacity:.5}100%{transform:translateY(96vh);opacity:0}}
+@keyframes drift{0%{background-position:0 0,0 0}100%{background-position:64px 64px,64px 64px}}
+@keyframes flick{0%,100%{opacity:.85}50%{opacity:.35}}
+@keyframes cvDraw{from{stroke-dashoffset:1700}to{stroke-dashoffset:0}}
+@keyframes cvPop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+@keyframes cvLabel{from{opacity:0;transform:translate(-100%,14px)}to{opacity:1;transform:translate(-100%,0)}}
+@keyframes cvRing{0%{transform:scale(.6);opacity:.8}70%{opacity:0}100%{transform:scale(3.1);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+
+/* Hover states — these were style-hover="" attributes applied by the
+   runtime as inline styles, so they need !important to beat the element's
+   own style attribute. */
+.index-hv-1:hover {
+  color:#f2f0ea !important;
+  transform:translateX(-2px) !important;
+}
+
+.index-hv-2:hover {
+  padding-left:14px !important;
+  background:rgba(242,240,234,0.045) !important;
+  color:#fff !important;
+}
+
+.index-hv-3:hover {
+  background:#131311 !important;
+}
+
+.index-hv-4:hover {
+  background:rgba(242,240,234,0.04) !important;
+  padding-left:16px !important;
+  box-shadow:inset 3px 0 0 var(--accent,#ff5c22) !important;
+}
+
+.index-hv-5:hover {
+  gap:18px !important;
+}
+
+.index-hv-6:hover {
+  border-color:var(--accent,#ff5c22) !important;
+  color:#fff !important;
+  transform:translateY(-3px) !important;
+}
+
+.index-hv-7:hover {
+  background-color:var(--accent,#ff5c22) !important;
+  color:#0a0a09 !important;
+  transform:translateY(-4px) !important;
+}
+
+.index-hv-8:hover {
+  color:var(--accent,#ff5c22) !important;
+  background-size:100% 1px !important;
+}
